@@ -90,16 +90,32 @@ var finances = [
 
 let totalMonths = 0;
 let totalAmount = 0;
+let nestedArray = [];
+let greatest = ["", ];
+let lowest = ["", ];
+let average = 0;
+let nestedSum = 0;
+
 
 for (let i = 0; i < finances.length; i++) {
-      
+     // calculate the total amount of Profit/Losses over the entire period.
+    // calaculate total number of months included in the dataset. 
     totalAmount += finances[i][1];
    totalMonths = finances.length;
-    
+   
 
     
 }
+
+
+for (let i = 0; i < finances.length; i++) {
+    // calculate the  changes in Profit/Losses over the entire period.
+    if (i >= 1) {
+        nestedArray.push(finances[i][1] - finances[i-1][1]);
+    }
+
+
+}
 console.log("Total Month: " + totalMonths);
 console.log("Amount Total: " + totalAmount);
-
-
+console.log("Total Month: " + nestedArray);
