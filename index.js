@@ -99,6 +99,7 @@ for (let i = 0; i < finances.length; i++) {
 
     
 }
-
+console.log("Total Month: " + totalMonths);
+console.log("Amount Total: " + totalAmount);
 
 
