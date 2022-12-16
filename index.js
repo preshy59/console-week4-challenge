@@ -95,6 +95,7 @@ let greatest = ["", ];
 let lowest = ["", ];
 let average = 0;
 let nestedSum = 0;
+newArray = ["", ];
 
 
 for (let i = 0; i < finances.length; i++) {
@@ -102,20 +103,32 @@ for (let i = 0; i < finances.length; i++) {
     // calaculate total number of months included in the dataset. 
     totalAmount += finances[i][1];
    totalMonths = finances.length;
-   
-
-    
 }
-
 
 for (let i = 0; i < finances.length; i++) {
     // calculate the  changes in Profit/Losses over the entire period.
     if (i >= 1) {
         nestedArray.push(finances[i][1] - finances[i-1][1]);
     }
-
-
 }
-console.log("Total Month: " + totalMonths);
-console.log("Amount Total: " + totalAmount);
-console.log("Total Month: " + nestedArray);
+
+// calculate the average of the changes in Profit/Losses over the entire period.
+for (let i = 0; i < nestedArray.length; i++) {
+    nestedSum += nestedArray[i];
+    average = (nestedSum / nestedArray.length);
+     nestedSum = Math.round(average *100)/100;
+}
+
+// for (let i = 0; i < finances.length; i++) {
+//     // calculate the  changes in Profit/Losses over the entire period.
+    
+//        newArray = nestedArray.push(finances[i][0]);
+//       greatest = Math.max(newArray);
+    
+// }
+
+console.log("Total Months: " + totalMonths);
+console.log("Total: $" + totalAmount);
+console.log("Average Change: $" + nestedSum);
+// console.log("Greastest Increase in Profit: $" + greatest);
+// console.log("Greastest Decrease in Profit: $" + roundedAverage);
