@@ -130,7 +130,8 @@ for (let i = 0; i < nestedArray.length; i++) {
     averageRounded = Math.round(average *100)/100;
 }
 
-
+console.log("Financial Analysis");
+console.log("---------------------------");
 console.log("Total Months: " + totalMonths);
 console.log("Total: $" + totalAmount);
 console.log("Average Change: $" + averageRounded);
