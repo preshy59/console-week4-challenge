@@ -94,8 +94,9 @@ let nestedArray = [];
 let greatest = ["", ];
 let lowest = ["", ];
 let average = 0;
+let averageRounded =0;
 let nestedSum = 0;
-newArray = ["", ];
+
 
 
 for (let i = 0; i < finances.length; i++) {
@@ -109,8 +110,16 @@ for (let i = 0; i < finances.length; i++) {
     // calculate the  changes in Profit/Losses over the entire period.
     if (i >= 1) {
         nestedArray.push(finances[i][1] - finances[i-1][1]);
+        
+        // finding the index of the array with the greatest value
         greatest = Math.max.apply(Math, nestedArray);
+        const indexGreat = nestedArray.indexOf(greatest);
+        stringGreat = finances[indexGreat + 1][0];
+
+        // finding the index of the array with the lowest value
         lowest = Math.min.apply(Math, nestedArray);
+        const indexLowest = nestedArray.indexOf(lowest);
+        stringLowest = finances[indexLowest + 1][0];
     }
 }
 
@@ -118,12 +127,12 @@ for (let i = 0; i < finances.length; i++) {
 for (let i = 0; i < nestedArray.length; i++) {
     nestedSum += nestedArray[i];
     average = (nestedSum / nestedArray.length);
-     nestedSum = Math.round(average *100)/100;
+    averageRounded = Math.round(average *100)/100;
 }
 
 
 console.log("Total Months: " + totalMonths);
 console.log("Total: $" + totalAmount);
-console.log("Average Change: $" + nestedSum);
-console.log("Greastest Increase in Profit: $" + greatest);
-console.log("Greastest Decrease in Profit: $" + lowest);
+console.log("Average Change: $" + averageRounded);
+console.log("Greastest Increase in Profit: " + stringGreat + ": $" + greatest);
+console.log("Greastest Decrease in Profit: " + stringLowest + ": $" + lowest);
